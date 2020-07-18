@@ -26,15 +26,22 @@
           document.querySelector('#votes').append(li);
       });
   });
+           
+           socket.on('vote totals', data => {
+      document.querySelector('#yes').innerHTML = data.yes;
+      document.querySelector('#no').innerHTML = data.no;
+      document.querySelector('#maybe').innerHTML = data.maybe;
+  });
 </script>
           <title>Vote</title>
       </head>
-      <body>
-          <ul id="votes">
-          </ul>
-          <hr>
-          <button data-vote="yes">Yes</button>
-          <button data-vote="no">No</button>
-          <button data-vote="maybe">Maybe</button>
-      </body>
+       <body>
+      <div>Yes Votes: <span id="yes"></span></div>
+      <div>No Votes: <span id="no"></span></div>
+      <div>Maybe Votes: <span id="maybe"><span></div>
+      <hr>
+      <button data-vote="yes">Yes</button>
+      <button data-vote="no">No</button>
+      <button data-vote="maybe">Maybe</button>
+  </body>
   </html>
