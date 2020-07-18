@@ -13,6 +13,10 @@
   @app.route("/")
   def index():
       return render_template("index.html", votes=votes)
+   
+    @app.route("/hello")
+  def hello():
+      return render_template("hello.html")
 
   @socketio.on("submit vote")
   def vote(data):
